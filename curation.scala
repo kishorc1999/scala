@@ -6,7 +6,7 @@ import org.apache.spark.sql.SaveMode
 
 val almaren = Almaren("Demo")
 
-val sourceDf=almaren.builder.sourceJdbc("jdbc:postgresql://hostname/databasename","org.postgresql.Driver","select * from schema.tablename",Some(username),Some(password)).batch
+val sourceDf=almaren.builder.sourceJdbc("jdbc:postgresql://w3.training5.modak.com/training_2021","org.postgresql.Driver","select * from schema.tablename",Some("mt3061"),Some("mt3061@m07y21")).batch
 
 almaren.builder
-.sourceDataFrame(sourceDf).targetJdbc("jdbc:postgresql://hostname/databasename","org.postgresql.Driver", "schema.tablename", SaveMode.Overwrite, Some(username),Some(password),Map("batchsize"->"5000")).batch
+.sourceDataFrame(sourceDf).targetJdbc("jdbc:postgresql://w3.training5.modak.com/training_2021","org.postgresql.Driver", "schema.tablename", SaveMode.Overwrite, Some("mt3061"),Some("mt3061@m07y21"),Map("batchsize"->"5000")).batch
